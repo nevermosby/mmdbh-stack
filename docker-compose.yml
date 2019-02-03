@@ -60,9 +60,12 @@ marathon:
     MARATHON_TASK_LAUNCH_TIMEOUT: '300000'
     MARATHON_HTTP_CREDENTIALS: admin:pwd 
 
-#haproxy-bamboo:
-#  image:
-#  net: host
-#  volumes:
-#    - /etc/localtime:/etc/localtime
-#  environment:
+haproxy-bamboo:
+  image: robolwq/bamboo-ha:1.2
+  net: host
+  volumes:
+    - /home/davidli/gh/bamboo:/root/go/src/github.com/QubitProducts/bamboo
+  environment:
+    MARATHON_USE_EVENT_STREAM: 'true'
+  entrypoint: /root/go/src/github.com/QubitProducts/bamboo/builder/run.sh
+
