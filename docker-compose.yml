@@ -58,10 +58,11 @@ marathon:
     MARATHON_MASTER: 'zk://localhost:2181/mesos'
     MARATHON_EVENT_SUBSCRIBER: 'http_callback'
     MARATHON_TASK_LAUNCH_TIMEOUT: '300000'
+    MARATHON_HTTP_CREDENTIALS: admin:pwd 
 
-haproxy-bamboo:
-  image:
-  net: host
-  volumes:
-    - /etc/localtime:/etc/localtime
-  environment:
+#haproxy-bamboo:
+#  image:
+#  net: host
+#  volumes:
+#    - /etc/localtime:/etc/localtime
+#  environment:
